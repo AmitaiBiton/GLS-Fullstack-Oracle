@@ -1,4 +1,4 @@
-
+injectJquery()
 // inject Jquary and url to a head[0]
 function injectJquery() {
     var script = document.createElement('script');
@@ -19,10 +19,26 @@ function injectJquery() {
 
 // create a callback name -> __5szm2kaj see the url.
 function __5szm2kaj(response){
-    inject_css(response);
+    //console.log(response)
+    inject_css(response.data.css);
+    
+
+
 }
 
 // response.data.css contain the css that we need for the box and other.
-function inject_css(response){
+function inject_css(css_file){
+    console.log(css_file)
+    $('<link rel="stylesheet" href="https://guidedlearning.oracle.com/player/latest/static/css/stTip.css" type="text/css" />').appendTo('head');
+    $('<style type="text/css"> ' + css_file + '</style>').appendTo('head');
+}
 
+
+// create element that can hold the content 
+function createTipElementFromHTML(div_String, pos_step) {
+    let wrapper1 ='<div  class="sttip">   	<div class="tooltip in"> <div class="tooltip-arrow"></div><div class="tooltip-arrow second-arrow"></div><div class="popover-inner">';
+    let wrapper2 ='</div></div></div>';
+    var div = document.createElement('div');
+    div.innerHTML ='<div class=stepNumber'+pos_step+'> '+ wrapper1+ div_String + wrapper2 +' </div>';
+    return div.firstChild;
 }
