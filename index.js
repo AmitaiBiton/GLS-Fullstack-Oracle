@@ -12,9 +12,9 @@ function injectJquery() {
     document.getElementsByTagName('head')[0].appendChild(script);
 }
 
-function GET_RESPONSE(myObj) {
+function GET_RESPONSE(response) {
     
-    console.log(myObj)
+    console.log(response);
     
 
 }
