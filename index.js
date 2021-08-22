@@ -12,7 +12,7 @@ function injectJquery() {
     document.getElementsByTagName('head')[0].appendChild(script);
 }
 
-function GWT_RESPONSE(myObj) {
+function GET_RESPONSE(myObj) {
     
     console.log(myObj)
     
