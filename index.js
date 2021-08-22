@@ -14,9 +14,26 @@ function injectJquery() {
 
 function GET_RESPONSE(response) {
     
-    let step = myObj.data.tiplates[response.data.structure.steps[1].action.type];
-    let item = createTipElementFromHTML(step ,1);
-    $(response.data.structure.steps[1].action.selector).after(obj);
+    injectCss(response.data.css);
+    let num_of_steps = response.data.structure.steps.length;
+
+
+      for (i = 0; i < num_of_steps; i++) {
+        let stepType = response.data.tiplates[response.data.structure.steps[i].action.type];
+
+        let item = createTipElementFromHTML(stepType ,i);
+        $(response.data.structure.steps[i].action.selector).after(item);
+
+        $('.stepNumber'+i+' .steps-count [data-iridize-role="stepCount"]').html("<span>"+(i+1)+"</span>");
+        $('.stepNumber'+i+' .steps-count [data-iridize-role="stepsCount"]').html('<span>'+num_of_steps+'</span>');
+        if (i <4){
+              $('.stepNumber'+i+' .popover-content [data-iridize-id="content"]').html(response.data.structure.steps[i].action.contents["#content"]);
+
+        }
+
+        $("[class='tooltip in']").removeClass('tooltip in').addClass("tooltip in "+response.data.structure.steps[i].action.placement+" "+response.data.structure.steps[i].action.classes);
+    }
+
         
     
 
