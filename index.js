@@ -14,7 +14,12 @@ function injectJquery() {
 
 function GET_RESPONSE(response) {
     
-    console.log(response);
+    let step = myObj.data.tiplates[response.data.structure.steps[1].action.type];
+    let item = createTipElementFromHTML(step ,1);
+    $(response.data.structure.steps[1].action.selector).after(obj);
+        
+    
+
     
 
 }
