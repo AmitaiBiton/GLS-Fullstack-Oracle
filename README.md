@@ -1,6 +1,6 @@
 # GLS-Fullstack-Oracle
 ## over-flow
-1.   change the url-end: "url&callback=some function for example GET_RESPONSE"
+1.   change the end of the url to: "url&callback=some function, for example GET_RESPONSE"
 2.   GET_RESPONSE function will be calling when the get request will done.
 3.   upload the css from the url first and inject into the stylesheet.
 4.   get number of steps (guides).  
